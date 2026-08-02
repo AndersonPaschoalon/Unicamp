@@ -1,0 +1,287 @@
+{
+  "workspace": {
+    "statuses": [
+      {
+        "name": "BACKLOG",
+        "isTerminal": false
+      },
+      {
+        "name": "DOING",
+        "isTerminal": false
+      },
+      {
+        "name": "TESTING",
+        "isTerminal": false
+      },
+      {
+        "name": "DONE",
+        "isTerminal": true
+      }
+    ],
+    "workflows": [
+      {
+        "name": "WF_COMPLETO",
+        "allowedTransitions": [
+          [
+            {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "DOING",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "DOING",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "TESTING",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "TESTING",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "DONE",
+                "isTerminal": true
+              }
+            ]
+          ]
+        ],
+        "initialStatus": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "id": "REFATORA-745F",
+        "deadline": "2026-05-01",
+        "title": "Refatorar SRP",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "estimatedEffort": 400
+      },
+      {
+        "id": "IMPLEMEN-745F",
+        "deadline": "2026-05-05",
+        "title": "Implementar Mapas",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "estimatedEffort": 300
+      },
+      {
+        "id": "CONFIGUR-745F",
+        "deadline": "2026-06-01",
+        "title": "Configurar Apptainer",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "estimatedEffort": 800
+      }
+    ],
+    "projects": {
+      "NexusEngine": {
+        "name": "NexusEngine",
+        "totalBudget": 25000,
+        "workflow": {
+          "name": "WF_COMPLETO",
+          "allowedTransitions": [
+            [
+              {
+                "name": "BACKLOG",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "DOING",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "DOING",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TESTING",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "TESTING",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "DONE",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "BACKLOG",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "marcos.prof",
+              "email": "marcos@unicamp.br"
+            },
+            "MANAGER"
+          ],
+          [
+            {
+              "username": "estudante.a",
+              "email": "a@projeto.com"
+            },
+            "CONTRIBUTOR"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "IMPLEMEN-745F",
+            "deadline": "2026-05-05",
+            "title": "Implementar Mapas",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 300
+          },
+          {
+            "id": "REFATORA-745F",
+            "deadline": "2026-05-01",
+            "title": "Refatorar SRP",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 400
+          }
+        ]
+      },
+      "LabExp": {
+        "name": "LabExp",
+        "totalBudget": 10000,
+        "workflow": {
+          "name": "WF_COMPLETO",
+          "allowedTransitions": [
+            [
+              {
+                "name": "BACKLOG",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "DOING",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "DOING",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TESTING",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "TESTING",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "DONE",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "BACKLOG",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "marcos.prof",
+              "email": "marcos@unicamp.br"
+            },
+            "MANAGER"
+          ],
+          [
+            {
+              "username": "estudante.c",
+              "email": "c@projeto.com"
+            },
+            "CONTRIBUTOR"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "CONFIGUR-745F",
+            "deadline": "2026-06-01",
+            "title": "Configurar Apptainer",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 800
+          }
+        ]
+      }
+    }
+  },
+  "userService": {
+    "users": [
+      {
+        "username": "marcos.prof",
+        "email": "marcos@unicamp.br"
+      },
+      {
+        "username": "estudante.a",
+        "email": "a@projeto.com"
+      },
+      {
+        "username": "estudante.b",
+        "email": "b@projeto.com"
+      },
+      {
+        "username": "estudante.c",
+        "email": "c@projeto.com"
+      }
+    ]
+  }
+}

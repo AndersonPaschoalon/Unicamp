@@ -1,0 +1,51 @@
+# =========================================================
+# TESTE 5
+# =========================================================
+
+# 1. Instancias iniciais
+CREATE_USER;alan.turing;alan@bletchley.org
+CREATE_USER;ada.lovelace;ada@calculus.gb
+CREATE_STATUS;TO_DO;false
+CREATE_STATUS;DONE;true
+CREATE_WORKFLOW;Fluxo_Rigido
+SET_INITIAL_STATUS;Fluxo_Rigido;TO_DO
+ALLOW_TRANSITION;Fluxo_Rigido;TO_DO;DONE
+
+# 2. Teste de orçamento
+CREATE_PROJECT;Projeto_Pobre;10
+VINCULAR_WORKFLOW;Projeto_Pobre;Fluxo_Rigido
+ADD_MEMBER;Projeto_Pobre;alan.turing;MANAGER
+
+# Sucesso: Adiciona 10 de esforço - limite exato
+CREATE_TASK;Tarefa_Limite;2026-12-01;10;Projeto_Pobre
+
+# [FALHA ESPERADA] Estouro de Budget  por 1 unidade
+CREATE_TASK;Tarefa_Invasora;2026-12-01;1;Projeto_Pobre   # @Error(Orçamento insuficiente)
+
+# 3. Teste de RBAC
+CREATE_PROJECT;Projeto_Restrito;1000
+VINCULAR_WORKFLOW;Projeto_Restrito;Fluxo_Rigido
+ADD_MEMBER;Projeto_Restrito;ada.lovelace;VIEWER
+
+CREATE_TASK;Tarefa_Admin;2026-12-01;50;Projeto_Restrito
+ASSIGN_USER;2;ada.lovelace
+
+# [FALHA ESPERADA] Viewer não pode mudar status (Apenas Contributor/Manager)
+CHANGE_STATUS;2;DONE;ada.lovelace                     # @Error(Usuario nao tem privilegios)
+
+# 4. Teste Workflow
+CREATE_WORKFLOW;Workflow_Vazio
+CREATE_PROJECT;Projeto_Sem_Rumo;500
+VINCULAR_WORKFLOW;Projeto_Sem_Rumo;Workflow_Vazio
+
+# [FALHA ESPERADA] Workflow sem Initial Status não pode criar Task
+CREATE_TASK;Tarefa_Sem_Inicio;2026-12-01;10;Projeto_Sem_Rumo # @Error(Workflow sem status inicial)
+
+# 5. TESTE DE TRANSIÇÃO INVÁLIDA (O "SALTO")
+ADD_MEMBER;Projeto_Restrito;alan.turing;MANAGER
+# Tentativa de mover para um status que não existe ou transição não permitida
+CHANGE_STATUS;2;STATUS_FANTASMA;alan.turing            # @Error(Status desconhecido)
+
+# 6. RELATÓRIO FINAL
+REPORT_STATUS
+

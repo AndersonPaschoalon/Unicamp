@@ -1,0 +1,30 @@
+# Smoke test v2 — Parte 2 (com movimentação real de estado)
+
+CREATE_USER;alice;alice@nexus.com
+CREATE_STATUS;TODO;false
+CREATE_STATUS;IN_PROGRESS;false
+CREATE_STATUS;DONE;true
+CREATE_WORKFLOW;FLOW1
+SET_INITIAL_STATUS;FLOW1;TODO
+ALLOW_TRANSITION;FLOW1;TODO;IN_PROGRESS
+ALLOW_TRANSITION;FLOW1;IN_PROGRESS;DONE
+CREATE_PROJECT;Proj1;100
+LINK_WORKFLOW;Proj1;FLOW1
+ADD_MEMBER;Proj1;alice;CONTRIBUTOR
+CREATE_TASK;Task1;2026-12-01;10;Proj1
+
+# Descobrir o ID real da task: rode LIST_TASKS primeiro se não souber.
+# Ajuste manualmente o ID abaixo (impresso pelo [COMMAND] log ou pelo LIST_TASKS)
+LIST_TASKS
+
+# --- Depois de ver o ID real da task no LIST_TASKS acima, edite as duas linhas abaixo ---
+ASSIGN_USER;TASK1-4CD8;alice
+CHANGE_STATUS;TASK1-4CD8;IN_PROGRESS;alice
+CHANGE_STATUS;TASK1-4CD8;DONE;alice
+
+# Transição inválida propositalmente (TODO->DONE direto, não é permitido pelo workflow) — deve ser capturada
+CHANGE_STATUS;TASK1-4CD8;TODO;alice
+
+REPORT_STATUS
+LIST_TASKS
+

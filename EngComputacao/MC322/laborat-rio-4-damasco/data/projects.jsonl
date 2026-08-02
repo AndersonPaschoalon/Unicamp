@@ -1,0 +1,3 @@
+{"id":"Proj1","name":"Proj1","totalBudget":100,"teamMembers":{},"tasks":[]}
+{"id":"Proj1","name":"Proj1","totalBudget":100,"workflowId":"FLOW1","teamMembers":{},"tasks":[]}
+{"id":"Proj1","name":"Proj1","totalBudget":100,"workflowId":"FLOW1","teamMembers":{"alice":"CONTRIBUTOR"},"tasks":[]}

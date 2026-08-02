@@ -1,0 +1,13 @@
+# Smoke test v3 — Segunda execução (validação de reidratação)
+# Rode este arquivo SEM limpar a pasta data/ e SEM rodar o log_test_p3_v1.txt de novo.
+# Se a reidratação funcionou, a Task1 já deve aparecer como DONE, alice já deve
+# existir, e o Project Health deve já vir 100% ANTES de qualquer comando novo.
+
+LIST_TASKS
+REPORT_STATUS
+
+# Prova adicional: tentar recriar o mesmo usuário não deve quebrar o sistema
+# (idempotência do save — sobrescreve a mesma entrada no cache/arquivo)
+CREATE_USER;alice;alice@nexus.com
+LIST_TASKS
+

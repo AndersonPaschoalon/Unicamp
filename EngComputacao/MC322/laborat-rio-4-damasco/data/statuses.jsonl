@@ -1,0 +1,3 @@
+{"name":"TODO","isTerminal":false}
+{"name":"IN_PROGRESS","isTerminal":false}
+{"name":"DONE","isTerminal":true}

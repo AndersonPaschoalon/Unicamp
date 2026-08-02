@@ -1,0 +1,19 @@
+# Smoke test — Parte 2 (modelo imutável + Workspace fachada)
+ 
+CREATE_USER;alice;alice@nexus.com
+CREATE_STATUS;TODO;false
+CREATE_STATUS;DONE;true
+CREATE_WORKFLOW;FLOW1
+SET_INITIAL_STATUS;FLOW1;TODO
+ALLOW_TRANSITION;FLOW1;TODO;DONE
+CREATE_PROJECT;Proj1;100
+LINK_WORKFLOW;Proj1;FLOW1
+ADD_MEMBER;Proj1;alice;CONTRIBUTOR
+CREATE_TASK;Task1;2026-12-01;10;Proj1
+ 
+# Linha propositalmente inválida — deve ser ignorada e contar como erro de validação, sem interromper o log
+CHANGE_STATUS;NAO_EXISTE;DONE;alice
+ 
+REPORT_STATUS
+LIST_TASKS
+ 

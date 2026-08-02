@@ -1,0 +1,5 @@
+{"id":"TASK1-2026-12-01-10-PROJ1","title":"Task1","deadline":"2026-12-01","estimatedEffort":10,"projectId":"Proj1","statusId":"TODO"}
+{"id":"TASK1-2026-12-01-10-PROJ1","title":"Task1","deadline":"2026-12-01","estimatedEffort":10,"projectId":"Proj1","ownerId":"alice","statusId":"TODO"}
+{"id":"TASK1-2026-12-01-10-PROJ1","title":"Task1","deadline":"2026-12-01","estimatedEffort":10,"projectId":"Proj1","ownerId":"alice","statusId":"IN_PROGRESS"}
+{"id":"TASK1-2026-12-01-10-PROJ1","title":"Task1","deadline":"2026-12-01","estimatedEffort":10,"projectId":"Proj1","ownerId":"alice","statusId":"DONE"}
+{"id":"BUG-FIX-2026-01-01-5-PROJ1","title":"Bug Fix","deadline":"2026-01-01","estimatedEffort":5,"dueDate":"2026-02-02","projectId":"Proj1","statusId":"TODO"}

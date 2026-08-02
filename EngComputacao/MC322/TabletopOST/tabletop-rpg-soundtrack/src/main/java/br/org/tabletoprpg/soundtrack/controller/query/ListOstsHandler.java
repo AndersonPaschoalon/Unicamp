@@ -1,0 +1,28 @@
+package br.org.tabletoprpg.soundtrack.controller.query;
+
+import br.org.tabletoprpg.soundtrack.controller.Command;
+import br.org.tabletoprpg.soundtrack.controller.CommandHandler;
+import br.org.tabletoprpg.soundtrack.controller.result.StringListResult;
+import br.org.tabletoprpg.soundtrack.service.session.SessionService;
+
+/**
+ * Lista as OSTs disponíveis no catálogo (local_storage).
+ */
+public class ListOstsHandler implements CommandHandler {
+
+    public static final String COMMAND_NAME = "LIST_OSTS";
+
+    private final SessionService sessionService;
+
+    public ListOstsHandler(SessionService sessionService) {
+        this.sessionService = sessionService;
+    }
+
+    @Override
+    public StringListResult handle(Command command) {
+        requireParamCount(command.getParameters(), 0, COMMAND_NAME);
+
+        var osts = this.sessionService.getListOfOsts();
+        return new StringListResult(osts);
+    }
+}

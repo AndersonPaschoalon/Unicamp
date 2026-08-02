@@ -1,0 +1,54 @@
+
+======= NEXUS CORE: MENU =======
+1. Adicionar Usuário
+2. Adicionar Tarefa
+3. Listar Todas as Tarefas
+4. Processar Log de Ações
+0. Sair
+Escolha uma opção: 1. Carregar Log V1 (Básico)
+2. Carregar Log V2 (Desafio)
+3. Carregar Log V3
+[LOG] Usuário criado: alan.turing
+[LOG] Usuário criado: ada.lovelace
+[LOG] Usuário criado: grace.hopper
+[LOG] Projeto criado: Projeto Alpha
+[LOG] Projeto criado: Projeto Beta
+[LOG] Tarefa criada: Setup BD Alpha
+[LOG] Tarefa criada: API Login Alpha
+[LOG] Tarefa criada: Setup Frontend Beta
+[LOG] Usuário 'alan.turing' atribuído à tarefa ID 1
+[LOG] Usuário 'grace.hopper' atribuído à tarefa ID 3
+[LOG] Usuário 'ada.lovelace' atribuído à tarefa ID 2
+[LOG] Tarefa ID 2 movida para IN_PROGRESS
+[LOG] Tarefa ID 2 movida para BLOCKED
+[LOG] Tarefa ID 2 movida para IN_PROGRESS
+[LOG] Tarefa ID 2 movida para DONE
+[LOG] Tarefa ID 1 movida para IN_PROGRESS
+[LOG] Tarefa ID 3 movida para IN_PROGRESS
+[LOG] Tarefa ID 3 movida para DONE
+[LOG] Status Report:
+[LOG] Top Performers:
++----+----------------------+--------------------------+
+| USERNAME             | EMAIL                    |
++----+----------------------+--------------------------+
+| ada.lovelace         | ada@calculus.gb          |
+| grace.hopper         | grace@navy.mil           |
++----+----------------------+--------------------------+
+[LOG] Overloaded Users:
+[!] Nenhum usuário encontrado.
+[LOG] Project Health:
++----+----------------------+--------------------------+
+| PROJETO              | PERCENTUAL CONCLUÍDO     |
++----+----------------------+--------------------------+
+| Projeto Alpha        |                  50.00% |
+| Projeto Beta         |                   0.00% |
++----+----------------------+--------------------------+
+[LOG] Global Bottleneck: IN_PROGRESS
+
+======= NEXUS CORE: MENU =======
+1. Adicionar Usuário
+2. Adicionar Tarefa
+3. Listar Todas as Tarefas
+4. Processar Log de Ações
+0. Sair
+Escolha uma opção: 

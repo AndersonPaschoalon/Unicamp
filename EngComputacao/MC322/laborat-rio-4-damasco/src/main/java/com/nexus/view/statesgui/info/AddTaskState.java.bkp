@@ -1,0 +1,63 @@
+package com.nexus.view.statesgui.info;
+
+import java.time.LocalDate;
+
+import com.nexus.view.NexusGUI;
+import com.nexus.view.statesgui.VaadinViewState;
+import com.nexus.view.statesgui.menus.LoginState;
+import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.server.VaadinSession;
+
+public class AddTaskState implements VaadinViewState {
+
+    private final NexusGUI mainView;
+    private final VaadinViewState parent;
+    private final String projectName;
+
+    public AddTaskState(NexusGUI mainView, VaadinViewState parent, String projectName) {
+        this.mainView = mainView;
+        this.parent = parent;
+        this.projectName = projectName;
+    }
+
+    @Override
+    public void render(HasComponents container) {
+        String loggedInUser = (String) VaadinSession.getCurrent().getAttribute("loggedInUser");
+        if (loggedInUser == null) {
+            mainView.navigateTo(new LoginState(mainView));
+            return;
+        }
+
+        VerticalLayout form = new VerticalLayout();
+        form.setWidth("400px");
+        form.add(new H3("Nova Tarefa — " + projectName));
+
+        TextField tituloField = new TextField("Título da Tarefa");
+        tituloField.setWidthFull();
+        tituloField.setPlaceholder("ex: Implementar endpoint de login");
+
+        DatePicker prazoField = new DatePicker("Prazo");
+        prazoField.setMin(LocalDate.now());
+        prazoField.setWidthFull();
+
+        TextField esforcoField = new TextField("Esforço Estimado (horas)");
+        esforcoField.setWidthFull();
+        esforcoField.setPlaceholder("ex: 8");
+
+        Button salvarBtn = new Button("Criar Tarefa", e -> {
+            // TODO: Validate the form fields, dispatch the task creation command
+            // and navigate back to the parent state on success.
+            // Display appropriate feedback to the user in both cases.
+        });
+
+        Button cancelarBtn = new Button("Cancelar", e -> mainView.navigateTo(parent));
+
+        form.add(tituloField, prazoField, esforcoField, salvarBtn, cancelarBtn);
+        container.add(form);
+    }
+}

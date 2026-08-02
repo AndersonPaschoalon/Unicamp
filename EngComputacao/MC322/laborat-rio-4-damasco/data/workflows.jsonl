@@ -1,0 +1,5 @@
+{"id":"FLOW1","name":"FLOW1","allowedTransitions":[]}
+{"id":"FLOW1","name":"FLOW1","allowedTransitions":[],"initialStatusId":"TODO"}
+{"id":"FLOW1","name":"FLOW1","allowedTransitions":[{"fromStatusId":"TODO","toStatusId":"IN_PROGRESS"}],"initialStatusId":"TODO"}
+{"id":"FLOW1","name":"FLOW1","allowedTransitions":[{"fromStatusId":"TODO","toStatusId":"IN_PROGRESS"},{"fromStatusId":"IN_PROGRESS","toStatusId":"DONE"}],"initialStatusId":"TODO"}
+{"id":"FLOW2","name":"FLOW2","allowedTransitions":[]}

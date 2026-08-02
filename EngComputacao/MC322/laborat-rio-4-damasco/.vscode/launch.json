@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Nexus - CLI Interativa",
+            "request": "launch",
+            "mainClass": "com.nexus.Main",
+            "projectName": "laboratorio4",
+            "args": [],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Nexus - Smoke Test (log_test_p2.txt)",
+            "request": "launch",
+            "mainClass": "com.nexus.Main",
+            "projectName": "laboratorio4",
+            "args": [
+                "log_test_p2.txt"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Nexus - Smoke Test (log_test_p2_2.txt)",
+            "request": "launch",
+            "mainClass": "com.nexus.Main",
+            "projectName": "laboratorio4",
+            "args": [
+                "log_test_p2_2.txt"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Nexus - Smoke Test PT3",
+            "request": "launch",
+            "mainClass": "com.nexus.Main",
+            "projectName": "laboratorio4",
+            "args": [
+                "log_test_p3.txt"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Nexus - Smoke Test PT3 - Rehydrate",
+            "request": "launch",
+            "mainClass": "com.nexus.Main",
+            "projectName": "laboratorio4",
+            "args": [
+                "log_test_p3_rehydrate.txt"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Nexus - Web GUI (Vaadin/Spring Boot)",
+            "request": "launch",
+            "mainClass": "com.nexus.MainGui",
+            "projectName": "laboratorio4",
+            "args": [],
+            "console": "integratedTerminal"
+        }
+    ]
+}

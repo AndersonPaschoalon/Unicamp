@@ -1,0 +1,23 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.format.settings.url": "eclipse-formatter.xml",
+    // "editor.formatOnSave": true,
+    // Garante que o Java use o formatador da Red Hat
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            // Organiza os imports automaticamente ao salvar (Remove os não usados e ordena)
+            "source.organizeImports": "explicit"
+        }
+    },
+    // Estilo de formatação: você pode usar o padrão Google ou outro
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/master/eclipse-java-google-style.xml",
+    "java.format.settings.profile": "GoogleStyle",
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org"
+    ]
+}

@@ -1,0 +1,16 @@
+| Comando              | Sintaxe                                                    | Descrição                                      |
+| -------------------- | ---------------------------------------------------------- | ---------------------------------------------- |
+| ok `CREATE_USER`        | `CREATE_USER;username;email`                               | Cria um usuário                                |
+| ok `CREATE_PROJECT`     | `CREATE_PROJECT;projectName`                               | Cria um projeto                                |
+| ok `CREATE_STATUS`      | `CREATE_STATUS;statusName;isTerminal`                      | Cria um status dinâmico                        |
+| ok `CREATE_WORKFLOW`    | `CREATE_WORKFLOW;workflowName`                             | Cria um workflow vazio                         |
+| ok `SET_INITIAL_STATUS` | `SET_INITIAL_STATUS;workflowName;statusName`               | Define o status inicial automático do workflow |
+| ok `ALLOW_TRANSITION`   | `ALLOW_TRANSITION;workflowName;statusOrigem;statusDestino` | Adiciona transição válida entre estados        |
+| ok `LINK_WORKFLOW`      | `LINK_WORKFLOW;projectName;workflowName`                   | Associa workflow a um projeto                  |
+| ok `CREATE_TASK`        | `CREATE_TASK;taskName;deadline;effort;projectName`         | Cria tarefa vinculada ao projeto               |
+| ok `ASSIGN_USER`        | `ASSIGN_USER;taskId;username`                              | Define owner da tarefa                         |
+| ok `ADD_MEMBER`         | `ADD_MEMBER;projectName;username;ROLE`                     | Adiciona usuário ao projeto com papel RBAC     |
+| ok `CHANGE_STATUS`      | `CHANGE_STATUS;taskId;newStatusName;usernameAtuante`       | Solicita alteração de status                   |
+| ok `REPORT_STATUS`      | `REPORT_STATUS`                                            | Executa relatórios analíticos                  |
+
+

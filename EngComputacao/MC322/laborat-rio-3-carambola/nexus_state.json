@@ -1,0 +1,1258 @@
+{
+  "workspace": {
+    "statuses": [
+      {
+        "name": "BACKLOG",
+        "isTerminal": false
+      },
+      {
+        "name": "TODO",
+        "isTerminal": false
+      },
+      {
+        "name": "IN_PROGRESS",
+        "isTerminal": false
+      },
+      {
+        "name": "DONE",
+        "isTerminal": true
+      },
+      {
+        "name": "OPEN",
+        "isTerminal": false
+      },
+      {
+        "name": "ANALYSIS",
+        "isTerminal": false
+      },
+      {
+        "name": "VALIDATION",
+        "isTerminal": false
+      },
+      {
+        "name": "CLOSED",
+        "isTerminal": true
+      }
+    ],
+    "workflows": [
+      {
+        "name": "AGILE_FLOW",
+        "allowedTransitions": [
+          [
+            {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "TODO",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "TODO",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "BACKLOG",
+                "isTerminal": false
+              },
+              {
+                "name": "IN_PROGRESS",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "IN_PROGRESS",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "TODO",
+                "isTerminal": false
+              },
+              {
+                "name": "DONE",
+                "isTerminal": true
+              }
+            ]
+          ]
+        ],
+        "initialStatus": {
+          "name": "IN_PROGRESS",
+          "isTerminal": false
+        }
+      },
+      {
+        "name": "ENTERPRISE_FLOW",
+        "allowedTransitions": [
+          [
+            {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "ANALYSIS",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "ANALYSIS",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "VALIDATION",
+                "isTerminal": false
+              }
+            ]
+          ],
+          [
+            {
+              "name": "VALIDATION",
+              "isTerminal": false
+            },
+            [
+              {
+                "name": "ANALYSIS",
+                "isTerminal": false
+              },
+              {
+                "name": "CLOSED",
+                "isTerminal": true
+              }
+            ]
+          ]
+        ],
+        "initialStatus": {
+          "name": "OPEN",
+          "isTerminal": false
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "id": "IMPLEMEN-485E3281",
+        "deadline": "2026-06-01",
+        "title": "Implement Login",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "CREATEDA-2380F3DB",
+        "deadline": "2026-06-02",
+        "title": "Create Dashboard",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "BUILDAPI-9DBA18D0",
+        "deadline": "2026-06-03",
+        "title": "Build API Client",
+        "status": {
+          "name": "TODO",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "FIXSESSI-6B0D87D6",
+        "deadline": "2026-06-04",
+        "title": "Fix Session Bug",
+        "status": {
+          "name": "TODO",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "DARKMODE-35C3DA4A",
+        "deadline": "2026-06-05",
+        "title": "Dark Mode",
+        "status": {
+          "name": "IN_PROGRESS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "PUSHNOTI-C2840D09",
+        "deadline": "2026-06-06",
+        "title": "Push Notifications",
+        "status": {
+          "name": "IN_PROGRESS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "USERPREF-42F27D95",
+        "deadline": "2026-06-07",
+        "title": "User Preferences",
+        "status": {
+          "name": "DONE",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "ACCESSIB-F18B9E4B",
+        "deadline": "2026-06-08",
+        "title": "Accessibility Review",
+        "status": {
+          "name": "DONE",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "PROVISIO-DEF9B9A4",
+        "deadline": "2026-06-01",
+        "title": "Provision EC2",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "dave",
+          "email": "dave@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "SETUPVPC-BC85B896",
+        "deadline": "2026-06-02",
+        "title": "Setup VPC",
+        "status": {
+          "name": "BACKLOG",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "CONFIGUR-D82F1238",
+        "deadline": "2026-06-03",
+        "title": "Configure DNS",
+        "status": {
+          "name": "TODO",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "dave",
+          "email": "dave@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "DEPLOYKU-DD236E6E",
+        "deadline": "2026-06-04",
+        "title": "Deploy Kubernetes",
+        "status": {
+          "name": "TODO",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "CREATETE-06E44467",
+        "deadline": "2026-06-05",
+        "title": "Create Terraform",
+        "status": {
+          "name": "IN_PROGRESS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "dave",
+          "email": "dave@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "CONFIGUR-868E8DBA",
+        "deadline": "2026-06-06",
+        "title": "Configure Monitoring",
+        "status": {
+          "name": "IN_PROGRESS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "DATABASE-19BB1830",
+        "deadline": "2026-06-07",
+        "title": "Database Migration",
+        "status": {
+          "name": "DONE",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "dave",
+          "email": "dave@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "DISASTER-6D81DE8F",
+        "deadline": "2026-06-08",
+        "title": "Disaster Recovery",
+        "status": {
+          "name": "DONE",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 13
+      },
+      {
+        "id": "LEGACYMA-DB3B1D0B",
+        "deadline": "2026-06-01",
+        "title": "Legacy Mapping",
+        "status": {
+          "name": "OPEN",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "carol",
+          "email": "carol@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "DEFINEAP-409C01F1",
+        "deadline": "2026-06-02",
+        "title": "Define APIs",
+        "status": {
+          "name": "OPEN",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "SAPINTEG-3602FCAF",
+        "deadline": "2026-06-03",
+        "title": "SAP Integration",
+        "status": {
+          "name": "ANALYSIS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "carol",
+          "email": "carol@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "ACCOUNTI-362CA9F4",
+        "deadline": "2026-06-04",
+        "title": "Accounting Rules",
+        "status": {
+          "name": "ANALYSIS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "DATABASE-A9A92938",
+        "deadline": "2026-06-05",
+        "title": "Database Refactor",
+        "status": {
+          "name": "VALIDATION",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "carol",
+          "email": "carol@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "SECURITY-41D31035",
+        "deadline": "2026-06-06",
+        "title": "Security Compliance",
+        "status": {
+          "name": "VALIDATION",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "PERFORMA-FDFD3F47",
+        "deadline": "2026-06-07",
+        "title": "Performance Tests",
+        "status": {
+          "name": "CLOSED",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "carol",
+          "email": "carol@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "RELEASEC-D12AC53C",
+        "deadline": "2026-06-08",
+        "title": "Release Candidate",
+        "status": {
+          "name": "CLOSED",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "bob",
+          "email": "bob@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "REVIEWFI-A0738EE2",
+        "deadline": "2026-06-01",
+        "title": "Review Firewall",
+        "status": {
+          "name": "OPEN",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "ANALYZEL-457CF3CB",
+        "deadline": "2026-06-02",
+        "title": "Analyze Logs",
+        "status": {
+          "name": "OPEN",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "INSPECTI-9D9C869E",
+        "deadline": "2026-06-03",
+        "title": "Inspect IAM",
+        "status": {
+          "name": "ANALYSIS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "PENTESTA-519A6445",
+        "deadline": "2026-06-04",
+        "title": "Pentest API",
+        "status": {
+          "name": "ANALYSIS",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 8
+      },
+      {
+        "id": "REVIEWBA-C1F50253",
+        "deadline": "2026-06-05",
+        "title": "Review Backups",
+        "status": {
+          "name": "VALIDATION",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 2
+      },
+      {
+        "id": "VALIDATE-E66BFCF8",
+        "deadline": "2026-06-06",
+        "title": "Validate Encryption",
+        "status": {
+          "name": "VALIDATION",
+          "isTerminal": false
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 3
+      },
+      {
+        "id": "PATCHSER-851BFD20",
+        "deadline": "2026-06-07",
+        "title": "Patch Servers",
+        "status": {
+          "name": "CLOSED",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "alice",
+          "email": "alice@nexus.com"
+        },
+        "estimatedEffort": 5
+      },
+      {
+        "id": "FINALSEC-8DE0406A",
+        "deadline": "2026-06-08",
+        "title": "Final Security Report",
+        "status": {
+          "name": "CLOSED",
+          "isTerminal": true
+        },
+        "owner": {
+          "username": "eve",
+          "email": "eve@nexus.com"
+        },
+        "estimatedEffort": 8
+      }
+    ],
+    "projects": {
+      "MobileApp": {
+        "name": "MobileApp",
+        "totalBudget": 100,
+        "workflow": {
+          "name": "AGILE_FLOW",
+          "allowedTransitions": [
+            [
+              {
+                "name": "BACKLOG",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TODO",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "TODO",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "BACKLOG",
+                  "isTerminal": false
+                },
+                {
+                  "name": "IN_PROGRESS",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "IN_PROGRESS",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TODO",
+                  "isTerminal": false
+                },
+                {
+                  "name": "DONE",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "BACKLOG",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "carol",
+              "email": "carol@nexus.com"
+            },
+            "VIEWER"
+          ],
+          [
+            {
+              "username": "bob",
+              "email": "bob@nexus.com"
+            },
+            "CONTRIBUTOR"
+          ],
+          [
+            {
+              "username": "alice",
+              "email": "alice@nexus.com"
+            },
+            "MANAGER"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "DARKMODE-35C3DA4A",
+            "deadline": "2026-06-05",
+            "title": "Dark Mode",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "IMPLEMEN-485E3281",
+            "deadline": "2026-06-01",
+            "title": "Implement Login",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "BUILDAPI-9DBA18D0",
+            "deadline": "2026-06-03",
+            "title": "Build API Client",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "CREATEDA-2380F3DB",
+            "deadline": "2026-06-02",
+            "title": "Create Dashboard",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "PUSHNOTI-C2840D09",
+            "deadline": "2026-06-06",
+            "title": "Push Notifications",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "FIXSESSI-6B0D87D6",
+            "deadline": "2026-06-04",
+            "title": "Fix Session Bug",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "ACCESSIB-F18B9E4B",
+            "deadline": "2026-06-08",
+            "title": "Accessibility Review",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "USERPREF-42F27D95",
+            "deadline": "2026-06-07",
+            "title": "User Preferences",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          }
+        ]
+      },
+      "CloudMigration": {
+        "name": "CloudMigration",
+        "totalBudget": 200,
+        "workflow": {
+          "name": "AGILE_FLOW",
+          "allowedTransitions": [
+            [
+              {
+                "name": "BACKLOG",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TODO",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "TODO",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "BACKLOG",
+                  "isTerminal": false
+                },
+                {
+                  "name": "IN_PROGRESS",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "IN_PROGRESS",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "TODO",
+                  "isTerminal": false
+                },
+                {
+                  "name": "DONE",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "BACKLOG",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "alice",
+              "email": "alice@nexus.com"
+            },
+            "MANAGER"
+          ],
+          [
+            {
+              "username": "eve",
+              "email": "eve@nexus.com"
+            },
+            "CONTRIBUTOR"
+          ],
+          [
+            {
+              "username": "dave",
+              "email": "dave@nexus.com"
+            },
+            "CONTRIBUTOR"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "CONFIGUR-868E8DBA",
+            "deadline": "2026-06-06",
+            "title": "Configure Monitoring",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "DISASTER-6D81DE8F",
+            "deadline": "2026-06-08",
+            "title": "Disaster Recovery",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 13
+          },
+          {
+            "id": "PROVISIO-DEF9B9A4",
+            "deadline": "2026-06-01",
+            "title": "Provision EC2",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "DEPLOYKU-DD236E6E",
+            "deadline": "2026-06-04",
+            "title": "Deploy Kubernetes",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "SETUPVPC-BC85B896",
+            "deadline": "2026-06-02",
+            "title": "Setup VPC",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "DATABASE-19BB1830",
+            "deadline": "2026-06-07",
+            "title": "Database Migration",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "CONFIGUR-D82F1238",
+            "deadline": "2026-06-03",
+            "title": "Configure DNS",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "CREATETE-06E44467",
+            "deadline": "2026-06-05",
+            "title": "Create Terraform",
+            "status": {
+              "name": "BACKLOG",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          }
+        ]
+      },
+      "ERPModernization": {
+        "name": "ERPModernization",
+        "totalBudget": 200,
+        "workflow": {
+          "name": "ENTERPRISE_FLOW",
+          "allowedTransitions": [
+            [
+              {
+                "name": "OPEN",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "ANALYSIS",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "ANALYSIS",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "VALIDATION",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "VALIDATION",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "ANALYSIS",
+                  "isTerminal": false
+                },
+                {
+                  "name": "CLOSED",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "OPEN",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "carol",
+              "email": "carol@nexus.com"
+            },
+            "CONTRIBUTOR"
+          ],
+          [
+            {
+              "username": "bob",
+              "email": "bob@nexus.com"
+            },
+            "MANAGER"
+          ],
+          [
+            {
+              "username": "dave",
+              "email": "dave@nexus.com"
+            },
+            "VIEWER"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "ACCOUNTI-362CA9F4",
+            "deadline": "2026-06-04",
+            "title": "Accounting Rules",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "PERFORMA-FDFD3F47",
+            "deadline": "2026-06-07",
+            "title": "Performance Tests",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "SECURITY-41D31035",
+            "deadline": "2026-06-06",
+            "title": "Security Compliance",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "DEFINEAP-409C01F1",
+            "deadline": "2026-06-02",
+            "title": "Define APIs",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "RELEASEC-D12AC53C",
+            "deadline": "2026-06-08",
+            "title": "Release Candidate",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "LEGACYMA-DB3B1D0B",
+            "deadline": "2026-06-01",
+            "title": "Legacy Mapping",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "DATABASE-A9A92938",
+            "deadline": "2026-06-05",
+            "title": "Database Refactor",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "SAPINTEG-3602FCAF",
+            "deadline": "2026-06-03",
+            "title": "SAP Integration",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          }
+        ]
+      },
+      "SecurityAudit": {
+        "name": "SecurityAudit",
+        "totalBudget": 300,
+        "workflow": {
+          "name": "ENTERPRISE_FLOW",
+          "allowedTransitions": [
+            [
+              {
+                "name": "OPEN",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "ANALYSIS",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "ANALYSIS",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "VALIDATION",
+                  "isTerminal": false
+                }
+              ]
+            ],
+            [
+              {
+                "name": "VALIDATION",
+                "isTerminal": false
+              },
+              [
+                {
+                  "name": "ANALYSIS",
+                  "isTerminal": false
+                },
+                {
+                  "name": "CLOSED",
+                  "isTerminal": true
+                }
+              ]
+            ]
+          ],
+          "initialStatus": {
+            "name": "OPEN",
+            "isTerminal": false
+          }
+        },
+        "teamMembers": [
+          [
+            {
+              "username": "bob",
+              "email": "bob@nexus.com"
+            },
+            "VIEWER"
+          ],
+          [
+            {
+              "username": "alice",
+              "email": "alice@nexus.com"
+            },
+            "CONTRIBUTOR"
+          ],
+          [
+            {
+              "username": "eve",
+              "email": "eve@nexus.com"
+            },
+            "MANAGER"
+          ]
+        ],
+        "tasks": [
+          {
+            "id": "ANALYZEL-457CF3CB",
+            "deadline": "2026-06-02",
+            "title": "Analyze Logs",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "PENTESTA-519A6445",
+            "deadline": "2026-06-04",
+            "title": "Pentest API",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          },
+          {
+            "id": "REVIEWBA-C1F50253",
+            "deadline": "2026-06-05",
+            "title": "Review Backups",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 2
+          },
+          {
+            "id": "VALIDATE-E66BFCF8",
+            "deadline": "2026-06-06",
+            "title": "Validate Encryption",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "PATCHSER-851BFD20",
+            "deadline": "2026-06-07",
+            "title": "Patch Servers",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "REVIEWFI-A0738EE2",
+            "deadline": "2026-06-01",
+            "title": "Review Firewall",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 3
+          },
+          {
+            "id": "INSPECTI-9D9C869E",
+            "deadline": "2026-06-03",
+            "title": "Inspect IAM",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 5
+          },
+          {
+            "id": "FINALSEC-8DE0406A",
+            "deadline": "2026-06-08",
+            "title": "Final Security Report",
+            "status": {
+              "name": "OPEN",
+              "isTerminal": false
+            },
+            "estimatedEffort": 8
+          }
+        ]
+      }
+    }
+  },
+  "userService": {
+    "users": [
+      {
+        "username": "alice",
+        "email": "alice@nexus.com"
+      },
+      {
+        "username": "bob",
+        "email": "bob@nexus.com"
+      },
+      {
+        "username": "carol",
+        "email": "carol@nexus.com"
+      },
+      {
+        "username": "dave",
+        "email": "dave@nexus.com"
+      },
+      {
+        "username": "eve",
+        "email": "eve@nexus.com"
+      }
+    ]
+  }
+}

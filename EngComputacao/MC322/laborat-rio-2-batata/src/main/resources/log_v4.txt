@@ -1,0 +1,137 @@
+# =========================================================
+# 1. TESTE DE VALIDAÇÃO DE USUÁRIOS
+# =========================================================
+# Casos de Sucesso
+CREATE_USER;alan.turing;alan@bletchley.org
+CREATE_USER;ada.lovelace;ada@calculus.gb
+CREATE_USER;grace.hopper;grace@navy.mil
+
+# [FALHAS ESPERADAS] Identidade e E-mail inválidos
+CREATE_USER; ;vazio@teste.com                     # @Error(Username vazio)
+CREATE_USER;hacker.sem.arroba;emailinvalido.com   # @Error(Email inválido)
+CREATE_USER;hacker.sem.ponto;email@invalido       # @Error(Email inválido)
+
+# =========================================================
+# 2. TESTE DE CRIAÇÃO DE PROJETOS
+# =========================================================
+CREATE_PROJECT;Projeto Alpha;100
+CREATE_PROJECT;Projeto Beta;50
+
+# =========================================================
+# 3. TESTE DE CRIAÇÃO DE WORKFLOWS
+# =========================================================
+CREATE_WORKFLOW;Work_Alpha
+CREATE_WORKFLOW;Work_Beta
+
+# =========================================================
+# 4. TESTE DE ASSOCIAÇÃO DE WORKFLOW
+# =========================================================
+# Casos de Sucesso
+VINCULAR_WORKFLOW;Projeto Alpha;Work_Alpha
+VINCULAR_WORKFLOW;Projeto Beta;Work_Beta
+
+# [FALHAS ESPERADAS] Workflows e Projetos inválidos
+VINCULAR_WORKFLOW;Projeto Alpha;Work_Invalido   # @Error(Workflow Inválido)
+VINCULAR_WORKFLOW;Projeto Invalido;Work_Beta    # @Error(Projeto inválido)
+
+# =========================================================
+# 4. TESTE CRIAÇÃO DE STATUS
+# =========================================================
+CREATE_STATUS;TO_DO;false
+CREATE_STATUS;IN_PROGRESS;false
+CREATE_STATUS;DONE;true
+
+# =========================================================
+# 5. TESTE DE DEFINIÇÃO DO STATUS INICIAL
+# =========================================================
+# Casos de Sucesso
+SET_INITIAL_STATUS;Work_Alpha;TO_DO
+SET_INITIAL_STATUS;Work_Beta;TO_DO
+
+# [FALHAS ESPERADAS] Workflows e Status inválidos
+SET_INITIAL_STATUS;Work_Invalido;TO_DO          # @Error(Workflow inválido)
+SET_INITIAL_STATUS;Work_Beta;Status_Invalido    # @Error(Status inválido)
+
+# =========================================================
+# 6. TESTE DE TAREFAS E GESTÃO DE BUDGET
+# =========================================================
+# ID 1: Consome 40h do Alpha (Restam 60h)
+CREATE_TASK;Setup BD Alpha;2026-04-01;40;Projeto Alpha    
+
+# ID 2: Consome 50h do Alpha (Restam 10h)
+CREATE_TASK;API Login Alpha;2026-04-02;50;Projeto Alpha
+
+# [FALHA ESPERADA] Tentativa de usar 20h. Estoura o budget de Alpha (10h restantes)
+CREATE_TASK;Tarefa Excedente;2026-04-03;20;Projeto Alpha       # @Error(Estoura o budget de Alpha - 10h restantes)
+
+# ID 3: Consome exatamente 50h do Beta (Restam 0h) 
+CREATE_TASK;Setup Frontend Beta;2026-04-04;50;Projeto Beta
+
+# [FALHA ESPERADA] Tarefa associada a um projeto que não existe
+CREATE_TASK;Projeto Fantasma;2026-04-05;10;Projeto Gama        # @Error(Projeto inválido)
+
+# =========================================================
+# 7. TESTE DE ATRIBUIÇÃO E INTEGRIDADE DE RELACIONAMENTOS
+# =========================================================
+# Casos de Sucesso
+ASSIGN_USER;1;alan.turing
+ASSIGN_USER;3;grace.hopper
+
+# [FALHAS ESPERADAS] Entidades inexistentes
+ASSIGN_USER;2;usuario.fantasma        # @Error(Usuário inválido)
+ASSIGN_USER;99;ada.lovelace           # @Error(Task ID inexistente)
+
+# =========================================================
+# 8. TESTE DA MÁQUINA DE ESTADOS (STATE MACHINE)
+# =========================================================
+
+# [FALHAS ESPERADAS] Usuário não é membro do projeto para executar a ASSOCIAÇÃO
+CHANGE_STATUS;1;IN_PROGRESS;alan.turing    # @Error(Usuário não é membro do projeto para executar a ASSOCIAÇÃO)
+
+# Corrigindo a falha
+ADD_MEMBER;Projeto Alpha;alan.turing;CONTRIBUTOR
+ADD_MEMBER;Projeto Beta;ada.lovelace;CONTRIBUTOR
+
+# [FALHAS ESPERADAS] Transição de Status não permitida
+CHANGE_STATUS;1;IN_PROGRESS;alan.turing    # @Error(Transição de Status não permitida)
+
+# Corrigindo a falha
+ALLOW_TRANSITION;Work_Alpha;TO_DO;IN_PROGRESS
+ALLOW_TRANSITION;Work_Alpha;TO_DO;DONE
+ALLOW_TRANSITION;Work_Beta;TO_DO;DONE
+
+# Casos de Sucesso
+CHANGE_STATUS;1;IN_PROGRESS;alan.turing
+
+# [FALHAS ESPERADAS] Tarefa não possui membro associado
+CHANGE_STATUS;2;DONE;alan.turing           # @Error(Tarefa não possui membro associado)
+
+# Corrigindo a falha
+ASSIGN_USER;2;ada.lovelace
+
+# Casos de Sucesso
+CHANGE_STATUS;2;DONE;alan.turing
+CHANGE_STATUS;3;DONE;ada.lovelace
+
+# =========================================================
+# 9. RELATÓRIOS FINAIS
+# =========================================================
+REPORT_STATUS
+
+# SAÍDA ESPERADA:
+#+----+----------------------+--------------------------+
+#| USERNAME             | EMAIL                    |
+#+----+----------------------+--------------------------+
+#| ada.lovelace         | ada@calculus.gb          |
+#| grace.hopper         | grace@navy.mil           |
+#+----+----------------------+--------------------------+
+#[LOG] Overloaded Users:
+#[!] Nenhum usuário encontrado.
+#[LOG] Project Health:
+#+----+----------------------+--------------------------+
+#| PROJETO              | PERCENTUAL CONCLUÍDO     |
+#+----+----------------------+--------------------------+
+#| Projeto Beta         |                 100.00% |
+#| Projeto Alpha        |                  50.00% |
+#+----+----------------------+--------------------------+
+#[LOG] Global Bottleneck: IN_PROGRESS
