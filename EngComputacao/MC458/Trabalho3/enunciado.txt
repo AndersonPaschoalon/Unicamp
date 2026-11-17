@@ -1,0 +1,51 @@
+Fugindo do desemprego
+
+Disciplina: MC458 - Projeto e Análise de Algoritmos I
+Prazo de Entrega: 09/11/2026 23:55:59 Aberto
+
+Depois de um ano de muito trabalho — ou, pelo menos, de muita presença no escritório —, finalmente chegou a festa de fim de ano da empresa.
+
+Sem planilhas, sem reuniões e, o mais importante, com salgadinhos de graça.
+
+Você já estava na terceira visita à bandeja de coxinhas quando descobriu que uma pedrada vinha.
+
+Após algumas caipirinhas, a secretária da sua chefe compartilha uma informação confidencial, naquele tom de voz que costuma tornar informações confidenciais conhecidas por metade da festa:— Sua chefe está pensando em demitir você no ano que vem.Você interrompe a mastigação.Segundo ela, sua chefe desconfia que você só aparece no escritório para assistir vídeos no TikTok e descobrir em qual sala haverá coffee break.
+
+Também não ajudou o episódio em que ela encontrou você cochilando na sala de reuniões depois do almoço.
+Mas ainda existe esperança! Sua chefe acredita que você tem potencial e poderia reconsiderar a demissão se você demonstrasse que entende de algoritmos.
+
+Você engole a coxinha e começa a procurar uma oportunidade de salvar o emprego antes da sobremesa.É então que os astros se alinham: um grupo se reúne para jogar o jogo de cartas favorito da sua chefe.
+
+Ela está invicta e já começa a embaralhar as cartas com o sorriso de competitividade característico dela.As regras são simples: são colocadas sobre a mesa $n$ cartas, cada uma contendo um número inteiro positivo entre $1$ e $10^8$, inclusive.
+
+Cada participante deve organizar todas as cartas em uma sequência.
+
+Vence quem formar o maior número ao concatenar os números nessa ordem.
+
+Cada carta deve ser usada exatamente uma vez, e seus algarismos não podem ser separados nem reordenados.Você vê a oportunidade e anuncia:— Eu consigo ganhar ou empatar com você em qualquer partida.A mesa fica em silêncio.
+
+Sua chefe ergue uma sobrancelha.
+Alguém para de servir o pavê.— Em qualquer partida? — ela pergunta.Você poderia recuar.
+
+Poderia dizer que era brincadeira.
+
+Poderia, inclusive, fingir que estava falando com outra pessoa.
+
+Em vez disso, decide dobrar a aposta:— E, se eu ganhar, mereço um aumento.— Manda a ver! — responde ela.Sua chefe sorri e começa a distribuir as cartas.Desenvolva um algoritmo guloso que construa o maior número possível e ajude você a chegar ao próximo ano com emprego — e, quem sabe, com um salário melhor.
+
+EntradaA primeira linha contém um inteiro $n$ ($1 \leq n \leq 100$), que representa a quantidade de cartas.A segunda linha contém $n$ inteiros $a1, a2, \ldots, an$, em que $ai$ é o número escrito na $i$-ésima carta e $1 \leq a_i \leq 10^8$.
+
+SaídaImprima uma única linha contendo o maior número que pode ser formado pela concatenação dos números de todas as cartas.
+
+Exemplo 
+
+Entrada
+5 3 30 34 5 9
+
+Saída
+9534330
+
+Explicação
+Ao organizar as cartas na ordem $9$, $5$, $34$, $3$, $30$, obtemos o número $9534330$, o maior possível.
+
+Tempo de execução máximo por teste: 1 s
